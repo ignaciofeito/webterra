@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>Contacto - Terra buqué, velas de cera de soja</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    
+<body>
+
+    <!--################################## ENCABEZADO ##################################-->
+    
+    <img src= "img/logohome.png" alt="Terra" class="logoTerra">
+    
+    <nav class="navbar-expand-md justify-content-md-center">
+    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+        <ul class="nav mx-auto text-md-center text-left">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+			</li>
+            <li class="nav-item">
+                <a class="nav-link active" href="nosotros.html">Nosotros</a>
+			</li>
+            <li class="nav-item">
+                <a class="nav-link active" href="productos.html">Productos</a>
+			</li>
+            <li class="nav-item">
+                <a class="nav-link active" href="contacto.html">Contacto</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
+            <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/terra.buque/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+        </ul>
+    </div>
+</nav>    
+
+    
+    <!--################################## CONTACTO ##################################-->    
+    
+    <div class="container">
+        <div class="container__contacto">
+            <br><h1>Completa el formulario y te contactaremos a la brevedad</h1><br>
+            <form action="index.html" method="post">
+                <label for="nombre">Nombre</label><br>
+                <input type="text" name="nombre"  placeholder="Ingresa tu nombre"><br>
+                <label for="correo-electronico">Correo electrónico</label><br>
+                <input type="email" name="correo-electronico" placeholder="Ingresa tu correo electrónico"><br><br>
+                <select name="cliente">
+                    <option value="cliente">Soy cliente</option>
+                    <option value="no-cliente">No soy cliente</option>
+                </select><br><br>
+                <textarea rows="7" cols="40"></textarea><br>
+                <div><input type="checkbox" name="acepta" value="1">
+                ¿Desea recibir el newsletter?
+                </div><br>
+                <input type="button" value="Enviar">
+                <input type="reset" value="Limpiar">    
+                <br>
+            </form>
+        </div>
+    </div>
+    
+    <!--################################## FOOTER ##################################-->
+    
+    <footer>
+        <a href="https://www.instagram.com/terra.buque/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </footer>
+    
+</body>
+</html>

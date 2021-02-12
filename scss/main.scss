@@ -1,0 +1,140 @@
+$brown: #75695d;
+$darkbrown: #413a33;
+@mixin product-img {
+    width: 50%;
+    border: 5px solid white;
+    box-shadow: 2px 2px 10px gray;
+    transition: 1s;
+}
+
+body {
+    font-family: 'Antic Didone', serif;
+    color: $brown;
+//    background-color: rgba(251, 246, 242, 1); Este es un posible fondo de color.
+}
+
+h1, span {
+    font-family: 'Antic Didone', serif;
+    color: $brown;
+    font-size: 40px;
+    font-weight: 75;
+    text-align: center;
+}
+
+p {
+    color: $darkbrown;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/***************************************** NAVBAR *****************************************/
+
+/*Le doy todas las propiedades a las listas que usé, que son la nav y el footer*/
+
+.logoTerra {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%; 
+}
+
+.nav {
+    list-style: none;
+    overflow: hidden;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    a {
+        color: $brown;
+        transition: .3s;
+    }
+}
+
+.nav a:hover {
+    color: antiquewhite;
+    text-shadow: 1px 1px 1px gray;
+}
+
+/***************************************** HOME *****************************************/
+
+.homePage {    
+    height: 100vh;/*Busco que se destaque el header y la descripción como intro de la página haciendo que ocupe todo el viewport*/
+}
+
+.homePage__container h1 {
+    color: $brown;
+    font-family: 'Antic Didone', serif;
+    text-align: left;
+    font-size: 70px;
+}
+
+.homePage__container--text {
+    padding: 10% 5% 5% 6%;
+}
+
+.homePage__container--image img {
+    width: 100%;
+}
+
+.fa {
+    text-decoration: none;
+    color: $brown;
+}
+
+/***************************************** NOSOTROS *****************************************/
+
+.container__nosotros {
+    text-align: center;
+    .container__nosotros--imagen {
+        @include product-img}
+    .container__nosotros--text {
+        background: linear-gradient(75deg, rgba(255,255,255,1) 0%, rgba(251,246,242,1) 53%);}
+    div {margin: 3% 0% 6% 0%;}
+}
+
+/***************************************** TABLA DE PRODUCTOS *****************************************/
+
+/*Esta sección tiene una tabla con dos columnas, y una fila por producto, donde va el nombre y la descripción a la izquierda y la foto a la derecha*/
+
+.fa-chevron-left, .fa-chevron-rigth {
+    color: $brown;
+}
+
+.container__productos {
+    text-align: center; /*Quiero que el texto se pegue a la derecha, cerca de la foto*/
+    color: $darkbrown;
+    div {margin: 2% 0% 2% 0%;}
+    .row {padding: 0% 10% 0% 10%;}
+    h2 {font-family: 'Antic Didone', sans-serif;
+        p {font-family: 'Raleway', sans-serif;
+        }
+    }
+    .container__productos--text {padding: 0% 10% 0% 10%;}
+}
+    
+/*A continuación le doy estilo a cada una de las imágenes de productos*/
+
+.container__productos--imagen {
+    text-align: left;
+    @include product-img;
+}
+
+.container__nosotros--imagen:hover, .container__productos--imagen:hover {
+    transform: scale(1.05);
+}
+/***************************************** CONTACTO *****************************************/
+
+.container__contacto {
+    text-align: center;
+    form {font-family: 'Poppins', sans-serif;}
+}
+
+/***************************************** FOOTER *****************************************/
+
+footer {
+    color: $darkbrown;
+}
+
+/***************************************** RESPONSIVE *****************************************/
+/**********************************************************************************************/
+
