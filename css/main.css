@@ -68,6 +68,8 @@ p {
     transition: 1s; }
   .container__nosotros .container__nosotros--text {
     background: linear-gradient(75deg, white 0%, #fbf6f2 53%); }
+  .container__nosotros .vectorCasa {
+    width: 50%; }
   .container__nosotros div {
     margin: 3% 0% 6% 0%; }
 
@@ -108,9 +110,28 @@ p {
   .container__contacto form {
     font-family: 'Poppins', sans-serif; }
 
-/***************************************** FOOTER *****************************************/
-footer {
-  color: #413a33; }
+/***************************************** MAYORISTAS *****************************************/
+.container__mayoristas {
+  text-align: center; }
+  .container__mayoristas .container__mayoristas--productos {
+    padding: 5%; }
+    .container__mayoristas .container__mayoristas--productos .carousel-item {
+      padding: 5%; }
 
-/***************************************** RESPONSIVE *****************************************/
-/**********************************************************************************************/
+.container__mayoristas--imagen {
+  width: 60%;
+  border: 5px solid white;
+  box-shadow: 2px 2px 10px gray; }
+
+/***************************************** FOOTER *****************************************/
+.footer {
+  color: #413a33;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px; }
+  .footer ul li a {
+    color: #75695d;
+    transition: .3s; }
+  .footer a:hover {
+    color: antiquewhite;
+    text-shadow: 1px 1px 1px gray; }
