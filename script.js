@@ -26,10 +26,9 @@ productos.push(velaEnVaso, boxTerra, caramelera, carameleraCircus, carameleraJaz
 const carrito = [];
 
 for (const producto of productos) {
-    
-    $("#app").append('<div><button id="btn${producto.id}">Agregar</button></div>');
-        $("#btn${producto.id}").on('click', function (){
-            console.log(${producto.precio});
+     $('#tarjeta_producto').append('<div><button id="btn${producto.id}">Agregar</button></div>');
+        $('#btn${producto.id}').on('click', function (){
+           console.log(${producto.precio});
         });
 }
 
