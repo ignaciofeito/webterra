@@ -1,6 +1,7 @@
 // Empiezo por definir la clase de las velas 
 class producto {
-    constructor(nombre, precio, stock) {
+    constructor(id, nombre, precio, stock) {
+        this.id = id;
         this.nombre = nombre;
         this.precio = parseFloat(precio);
         this.stock = parseInt(stock);
@@ -11,17 +12,26 @@ class producto {
 }
 
 // A continuación creo los productos
-const velaEnVaso = new producto("vela en vaso", 450, 3);
-const boxTerra = new producto("box terra", 600, 2);
-const caramelera = new producto("caramelera", 500, 3);
-const carameleraCircus = new producto("caramelera mini circus", 500, 2);
-const carameleraJazmin = new producto("caramelera jazmín", 450, 1);
-const velaBombe = new producto("vela bombé", 400, 3);
-const sales = new producto("sales de baño", 450, 3);
+const velaEnVaso = new producto(1, "vela en vaso", 450, 3);
+const boxTerra = new producto(2, "box terra", 600, 2);
+const caramelera = new producto(3, "caramelera", 500, 3);
+const carameleraCircus = new producto(4, "caramelera mini circus", 500, 2);
+const carameleraJazmin = new producto(5, "caramelera jazmín", 450, 1);
+const velaBombe = new producto(6, "vela bombé", 400, 3);
+const sales = new producto(7, "sales de baño", 450, 3);
 
 const productos = []; // Este es el array que contendrá todos los productos
 productos.push(velaEnVaso, boxTerra, caramelera, carameleraCircus, carameleraJazmin, velaBombe, sales); // Agrega todos los productos al array "productos"
 
+const carrito = [];
+
+for (const producto of productos) {
+    
+    $("#app").append('<div><button id="btn${producto.id}">Agregar</button></div>');
+        $("#btn${producto.id}").on('click', function (){
+            console.log(${producto.precio});
+        });
+}
 
 // A partir de acá empieza la configuración de usuarios
 
@@ -56,11 +66,9 @@ if (localStorage.nombre == undefined) {
 
 //------------------------- CARRITO -------------------------------//
 
-//let productosPedidos = prompt("Ingresa nombre de las velas que quieres comprar, separados por una coma").toLowerCase(); 
 //const pedido = productosPedidos.split(",");
 
-
-const pedidoFiltrado = [];
+/*const pedidoFiltrado = [];
 
 if (pedido !== null) {
     for (i = 0; i < pedido.length; i++) {
@@ -72,4 +80,4 @@ if (pedido !== null) {
 let sumaTotal = 0;
 for (let i of pedidoFiltrado) sumaTotal += i;
 
-alert("El total de tu carrito es de " + sumaTotal + " pesos.");
+alert("El total de tu carrito es de " + sumaTotal + " pesos.");*/
