@@ -24,6 +24,7 @@ productos.push(velaEnVaso, boxTerra, caramelera, carameleraCircus, carameleraJaz
 
 
 // A partir de acá empieza la configuración de usuarios
+
 class usuario {
     constructor(nombre, correo) {
         this.nombre = nombre;
@@ -31,23 +32,32 @@ class usuario {
     }
 }
 
-let username = prompt("Ingresa tu nombre");
-let mail = prompt("Ingresa tu casilla de correo electrónico");
-
 const usuarios = []; // Este es el array de usuarios
 
-if (username !== null && mail !== null) {
-    let nuevoUsuario = new usuario(username, mail);
-    usuarios.push(nuevoUsuario); // Agrega el nuevo usuario al array
-    alert("Bienvenido " + nuevoUsuario.nombre);
-} else {
-    alert("No ingresaste datos correctamente");
+function guardarLocal(nombre, mail) {
+    localStorage.nombre = nombre;
+    localStorage.mail = mail;    
 }
 
-// Ingresar pedido
+function saludar(user) {
+    alert("Bienvenido " + user + "!");
+}
 
-let productosPedidos = prompt("Ingresa nombre de las velas que quieres comprar, separados por una coma").toLowerCase(); 
-const pedido = productosPedidos.split(",");
+if (localStorage.nombre == undefined) {
+    var username = prompt("Ingresa tu nombre");
+    var mail = prompt("Ingresa tu mail");
+    let nuevoUsuario = new usuario(username, mail);
+    usuarios.push(nuevoUsuario); // Agrega el nuevo usuario al array
+    guardarLocal(username, mail);
+    saludar(username)
+} else {
+    saludar(localStorage.nombre);
+}
+
+//------------------------- CARRITO -------------------------------//
+
+//let productosPedidos = prompt("Ingresa nombre de las velas que quieres comprar, separados por una coma").toLowerCase(); 
+//const pedido = productosPedidos.split(",");
 
 
 const pedidoFiltrado = [];
