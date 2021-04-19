@@ -1,10 +1,11 @@
 @charset "UTF-8";
 body {
-  font-family: 'Antic Didone', serif;
+  font-family: "Antic Didone", serif;
   color: #75695d; }
 
-h1, span {
-  font-family: 'Antic Didone', serif;
+h1,
+span {
+  font-family: "Antic Didone", serif;
   color: #75695d;
   font-size: 40px;
   font-weight: 75;
@@ -13,7 +14,7 @@ h1, span {
 p {
   color: #413a33;
   font-size: 18px;
-  font-family: 'Raleway', sans-serif; }
+  font-family: "Raleway", sans-serif; }
 
 /***************************************** NAVBAR *****************************************/
 /*Le doy todas las propiedades a las listas que usé, que son la nav y el footer*/
@@ -27,24 +28,23 @@ p {
   list-style: none;
   overflow: hidden;
   font-size: 16px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   letter-spacing: 1px; }
   .nav a {
     color: #75695d;
-    transition: .3s; }
+    transition: 0.3s; }
 
 .nav a:hover {
   color: antiquewhite;
   text-shadow: 1px 1px 1px gray; }
 
 /***************************************** HOME *****************************************/
-.homePage {
-  height: 100vh;
-  /*Busco que se destaque el header y la descripción como intro de la página haciendo que ocupe todo el viewport*/ }
+.homePage__container {
+  margin-bottom: 8%; }
 
 .homePage__container h1 {
   color: #75695d;
-  font-family: 'Antic Didone', serif;
+  font-family: "Antic Didone", serif;
   text-align: left;
   font-size: 70px; }
 
@@ -54,6 +54,27 @@ p {
 .homePage__container--image img {
   width: 100%; }
 
+.homePage__secondContainer {
+  padding: 5%;
+  text-align: center;
+  background: linear-gradient(0deg, white 0%, #fbf6f2 53%); }
+  .homePage__secondContainer p {
+    margin: 10%; }
+  .homePage__secondContainer img {
+    width: 20%; }
+
+.homePage__thirdContainer {
+  padding: 5%;
+  text-align: center; }
+  .homePage__thirdContainer img {
+    width: 50%; }
+  .homePage__thirdContainer a {
+    color: #75695d;
+    transition: 0.3s; }
+  .homePage__thirdContainer a:hover {
+    color: antiquewhite;
+    text-shadow: 1px 1px 1px gray; }
+
 .fa {
   text-decoration: none;
   color: #75695d; }
@@ -62,61 +83,133 @@ p {
 .container__nosotros {
   text-align: center; }
   .container__nosotros .container__nosotros--imagen {
-    width: 50%;
+    width: 70%;
     border: 5px solid white;
+    border-radius: 50%;
     box-shadow: 2px 2px 10px gray;
     transition: 1s; }
-  .container__nosotros .container__nosotros--text {
-    background: linear-gradient(75deg, white 0%, #fbf6f2 53%); }
-  .container__nosotros .vectorCasa {
-    width: 50%; }
-  .container__nosotros div {
-    margin: 3% 0% 6% 0%; }
+  .container__nosotros .row {
+    height: 70vh; }
+  .container__nosotros a {
+    color: #75695d;
+    transition: 0.3s; }
+  .container__nosotros a:hover {
+    color: antiquewhite;
+    text-shadow: 1px 1px 1px gray; }
 
-/***************************************** TABLA DE PRODUCTOS *****************************************/
-/*Esta sección tiene una tabla con dos columnas, y una fila por producto, donde va el nombre y la descripción a la izquierda y la foto a la derecha*/
-.fa-chevron-left, .fa-chevron-rigth {
-  color: #75695d; }
+.fondonosotros {
+  text-align: left;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.7) 45%, white 60%), url("../img/camposoja2.png");
+  background-repeat: no-repeat; }
+  .fondonosotros .row {
+    padding-top: 7%;
+    margin: 5% 0% 5% 0%; }
+  .fondonosotros h1 {
+    font-family: "Poppins", sans-serif;
+    text-align: left; }
+  .fondonosotros p {
+    font-size: 19px; }
+  .fondonosotros img {
+    width: 100%;
+    border-radius: 50%; }
 
+.fondonosotros2 {
+  text-align: left;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.7) 50%, white 70%), url("../img/deco2.png");
+  background-repeat: no-repeat; }
+  .fondonosotros2 .row {
+    padding-top: 7%;
+    margin: 5% 0% 5% 0%; }
+  .fondonosotros2 h1 {
+    font-family: "Poppins", sans-serif;
+    text-align: left; }
+  .fondonosotros2 p {
+    font-size: 19px; }
+
+.fondonosotros3 {
+  text-align: left;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0.7) 50%, white 70%), url("../img/cielo.jpg");
+  background-repeat: no-repeat; }
+  .fondonosotros3 .row {
+    padding-top: 7%;
+    margin: 5% 0% 5% 0%; }
+  .fondonosotros3 h1 {
+    font-family: "Poppins", sans-serif;
+    text-align: left; }
+  .fondonosotros3 p {
+    font-size: 19px; }
+
+.porqueTerra .row {
+  padding-top: 5%;
+  margin: 5% 0% 5% 0%; }
+
+/***************************************** PRODUCTOS *****************************************/
 .container__productos {
   text-align: center;
-  /*Quiero que el texto se pegue a la derecha, cerca de la foto*/
   color: #413a33; }
-  .container__productos div {
-    margin: 2% 0% 2% 0%; }
   .container__productos .row {
-    padding: 0% 10% 0% 10%; }
+    margin: 5% 0% 5% 0%;
+    padding: 0% 5% 0% 5%; }
+    .container__productos .row p {
+      text-align: left;
+      font-family: "Raleway", sans-serif; }
   .container__productos h2 {
-    font-family: 'Antic Didone', sans-serif; }
-    .container__productos h2 p {
-      font-family: 'Raleway', sans-serif; }
+    margin-top: 15%;
+    text-align: left;
+    font-family: "Antic Didone", sans-serif; }
   .container__productos .container__productos--text {
     padding: 0% 10% 0% 10%; }
 
-/*A continuación le doy estilo a cada una de las imágenes de productos*/
 .container__productos--imagen {
-  text-align: left;
-  width: 50%;
-  border: 5px solid white;
-  box-shadow: 2px 2px 10px gray;
-  transition: 1s; }
+  width: 100%;
+  border-radius: 20px; }
 
-.container__nosotros--imagen:hover, .container__productos--imagen:hover {
+.container__nosotros--imagen:hover {
   transform: scale(1.05); }
+
+.tarjeta_producto {
+  box-shadow: 2px 3px 14px -3px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: 2px 3px 14px -3px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 2px 3px 14px -3px rgba(0, 0, 0, 0.52);
+  height: 100%;
+  background-color: white;
+  mix-blend-mode: normal;
+  backdrop-filter: blur(22px);
+  border-radius: 20px; }
+  .tarjeta_producto .btn-primary {
+    color: #75695d;
+    background-color: antiquewhite;
+    border: none; }
+  .tarjeta_producto .btn-primary:hover {
+    background-color: #fad6a6;
+    color: #75695d; }
+  .tarjeta_producto .row {
+    padding: 0px; }
+  .tarjeta_producto h2,
+  .tarjeta_producto p {
+    margin: 0px; }
 
 /***************************************** CONTACTO *****************************************/
 .container__contacto {
   text-align: center; }
   .container__contacto form {
-    font-family: 'Poppins', sans-serif; }
+    font-family: "Poppins", sans-serif; }
 
 /***************************************** MAYORISTAS *****************************************/
-.container__mayoristas {
+.container__mayoristas .carousel-item {
   text-align: center; }
-  .container__mayoristas .container__mayoristas--productos {
+
+.container__mayoristas img {
+  margin: center; }
+
+.container__mayoristas .row {
+  padding: 5%; }
+  .container__mayoristas .row .carousel-item {
     padding: 5%; }
-    .container__mayoristas .container__mayoristas--productos .carousel-item {
-      padding: 5%; }
+
+.container__mayoristas form {
+  font-family: "Poppins", sans-serif;
+  text-align: center; }
 
 .container__mayoristas--imagen {
   width: 60%;
@@ -127,11 +220,52 @@ p {
 .footer {
   color: #413a33;
   font-size: 16px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Raleway", sans-serif;
   letter-spacing: 1px; }
   .footer ul li a {
     color: #75695d;
-    transition: .3s; }
+    transition: 0.3s; }
   .footer a:hover {
     color: antiquewhite;
     text-shadow: 1px 1px 1px gray; }
+
+@media (max-width: 992px) {
+  .logoTerra {
+    width: 30%; }
+  .navbar a {
+    padding: 5px;
+    font-size: 13px; }
+  .homePage__container--text h1 {
+    font-size: 35px;
+    margin-bottom: 5%; }
+  .container__nosotros .row {
+    height: auto;
+    padding: 3%;
+    margin: 0%; }
+    .container__nosotros .row img {
+      width: 40%; }
+  .container__nosotros h1 {
+    text-align: center; }
+  .container__nosotros .fondonosotros {
+    text-align: center;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.9) 90%), url("../img/camposoja2.png");
+    height: 80vh; }
+  .container__nosotros .fondonosotros2 {
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.7) 50%, white 90%), url("../img/deco2.png");
+    height: 80vh; }
+  .container__nosotros .fondonosotros3 {
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.7) 50%, white 90%), url("../img/cielo.jpg");
+    height: 80vh; }
+  .container__productos img {
+    width: 60%; }
+  .container__productos p {
+    text-align: left; }
+  .carruselproductos {
+    height: 100vh;
+    margin: auto; }
+  .fondoInterior {
+    background: none; }
+  .container__productos--imagen {
+    margin-left: 0%; }
+  .container__contacto textarea {
+    width: 90%; } }
