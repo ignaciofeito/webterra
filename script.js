@@ -89,5 +89,5 @@ document.querySelector("#btn_agregar7").addEventListener('click', function () {
 document.querySelector('#btn-carrito').addEventListener('click', function () {
     let sumaTotal = 0;
     for (let i of carrito) sumaTotal += i;
-    alert("El total del carrito es de " + sumaTotal);
+    document.querySelector('#totalCarrito').innerHTML = sumaTotal;
 });
