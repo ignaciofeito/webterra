@@ -23,15 +23,6 @@ const sales = new producto(7, "sales de baño", 450, 3);
 const productos = []; // Este es el array que contendrá todos los productos
 productos.push(velaEnVaso, boxTerra, caramelera, carameleraCircus, carameleraJazmin, velaBombe, sales); // Agrega todos los productos al array "productos"
 
-const carrito = [];
-
-for (const producto of productos) {
-     $('#tarjeta_producto').append('<div><button id="btn${producto.id}">Agregar</button></div>');
-        $('#btn${producto.id}').on('click', function (){
-           console.log(${producto.precio});
-        });
-}
-
 // A partir de acá empieza la configuración de usuarios
 
 class usuario {
@@ -65,18 +56,38 @@ if (localStorage.nombre == undefined) {
 
 //------------------------- CARRITO -------------------------------//
 
-//const pedido = productosPedidos.split(",");
+const carrito = [];
 
-/*const pedidoFiltrado = [];
+document.querySelector("#btn_agregar1").addEventListener('click', function () {
+    carrito.push(velaEnVaso.precio);
+});
 
-if (pedido !== null) {
-    for (i = 0; i < pedido.length; i++) {
-        var nuevoProducto = productos.find(a => a.nombre == pedido[i]);
-        pedidoFiltrado.push(nuevoProducto.precio);
-    };
-} 
+document.querySelector("#btn_agregar2").addEventListener('click', function () {
+    carrito.push(boxTerra.precio);
+});
 
-let sumaTotal = 0;
-for (let i of pedidoFiltrado) sumaTotal += i;
+document.querySelector("#btn_agregar3").addEventListener('click', function () {
+    carrito.push(caramelera.precio);
+});
 
-alert("El total de tu carrito es de " + sumaTotal + " pesos.");*/
+document.querySelector("#btn_agregar4").addEventListener('click', function () {
+    carrito.push(carameleraCircus.precio);
+});
+
+document.querySelector("#btn_agregar5").addEventListener('click', function () {
+    carrito.push(carameleraJazmin.precio);
+});
+
+document.querySelector("#btn_agregar6").addEventListener('click', function () {
+    carrito.push(velaBombe.precio);
+});
+
+document.querySelector("#btn_agregar7").addEventListener('click', function () {
+    carrito.push(sales.precio);
+});
+
+document.querySelector('#btn-carrito').addEventListener('click', function () {
+    let sumaTotal = 0;
+    for (let i of carrito) sumaTotal += i;
+    alert("El total del carrito es de " + sumaTotal);
+});
