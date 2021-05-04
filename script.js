@@ -57,44 +57,44 @@ $(`#btnRegistro`).on('click', function(){
 
 const carrito = [];
 
-document.querySelector("#btn_agregar1").addEventListener('click', function () {
+$(`#btn_agregar1`).on('click', function () {
     carrito.push(velaEnVaso.precio);
     let sumaTotal = 0;
     for (let i of carrito) sumaTotal += i;
-    document.querySelector('#totalCarrito').innerHTML = sumaTotal;
+    $(`#totalCarrito`).innerHTML = sumaTotal;
     var productDiv = document.createElement("div");
     productDiv.innerHTML = "<div class='row'><div class='col-3'><img src='img/vela-vaso.jpg' width='60%'></div><div class='col-5'><label> "+velaEnVaso.nombre+"</label></div><div class='col-3'><label>"+velaEnVaso.precio+"</label></div></div>";
-    document.querySelector('#listadoCarrito').appendChild(productDiv);
+    $(`#listadoCarrito`).appendChild(productDiv);
 });
 
-document.querySelector("#btn_agregar2").addEventListener('click', function () {
+$(`#btn_agregar2`).on('click', function () {
     carrito.push(boxTerra.precio);
     let sumaTotal = 0;
     for (let i of carrito) sumaTotal += i;
-    document.querySelector('#totalCarrito').innerHTML = sumaTotal;
+    $(`#totalCarrito`).innerHTML = sumaTotal;
     var productDiv = document.createElement("div");
     productDiv.innerHTML = "<div class='row'><div class='col-3'><img src='img/vela-box.jpg' width='60%'></div><div class='col-5'><label> "+boxTerra.nombre+"</label></div><div class='col-3'><label>"+boxTerra.precio+"</label></div></div>";
-    document.querySelector('#listadoCarrito').appendChild(productDiv);
+    $(`#listadoCarrito`).appendChild(productDiv);
 });
 
-document.querySelector("#btn_agregar3").addEventListener('click', function () {
+$(`#btn_agregar3`).addEventListener('click', function () {
     carrito.push(caramelera.precio);
     let sumaTotal = 0;
     for (let i of carrito) sumaTotal += i;
-    document.querySelector('#totalCarrito').innerHTML = sumaTotal;
+    $(`#totalCarrito`).innerHTML = sumaTotal;
     var productDiv = document.createElement("div");
     productDiv.innerHTML = "<div class='row'><div class='col-3'><img src='img/vela-caramelera.jpg' width='60%'></div><div class='col-5'><label> "+caramelera.nombre+"</label></div><div class='col-3'><label>"+caramelera.precio+"</label></div></div>";
-    document.querySelector('#listadoCarrito').appendChild(productDiv);
+    $(`#listadoCarrito`).appendChild(productDiv);
 });
 
-document.querySelector("#btn_agregar4").addEventListener('click', function () {
+$(`#btn_agregar4`).addEventListener('click', function () {
     carrito.push(carameleraCircus.precio);
     let sumaTotal = 0;
     for (let i of carrito) sumaTotal += i;
-    document.querySelector('#totalCarrito').innerHTML = sumaTotal;
+    $(`#totalCarrito`).innerHTML = sumaTotal;
     var productDiv = document.createElement("div");
     productDiv.innerHTML = "<div class='row'><div class='col-3'><img src='img/vela-caramelera-circus.jpg' width='60%'></div><div class='col-5'><label> "+carameleraCircus.nombre+"</label></div><div class='col-3'><label>"+carameleraCircus.precio+"</label></div></div>";
-    document.querySelector('#listadoCarrito').appendChild(productDiv);
+    $(`#listadoCarrito`).appendChild(productDiv);
 });
 
 document.querySelector("#btn_agregar5").addEventListener('click', function () {
