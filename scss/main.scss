@@ -57,6 +57,30 @@ p {
     text-shadow: 1px 1px 1px gray;
 }
 
+/***************************************** CARRITO *****************************************/
+
+/* .u-full-width {
+    width: 100%;
+    box-sizing: border-box;
+}
+.u-pull-right {
+    float: right;
+}
+*/
+.ul-carrito {
+    list-style: none;
+}
+.total-pesos {
+    text-align: right;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 600;
+}
+/*.submenu {
+    position: relative;
+}
+ */
 /***************************************** HOME *****************************************/
 
 .homePage__container {
@@ -244,13 +268,14 @@ p {
 }
 
 .tarjeta_producto {
-    .btn-primary{
+    .btn-primary {
         color: $brown;
-        background-color:antiquewhite;
+        background-color: antiquewhite;
         border: none;
-    } .btn-primary:hover {
+    }
+    .btn-primary:hover {
         background-color: rgb(250, 214, 166);
-        color:$brown;
+        color: $brown;
     }
     box-shadow: 2px 3px 14px -3px rgba(0, 0, 0, 0.52);
     -webkit-box-shadow: 2px 3px 14px -3px rgba(0, 0, 0, 0.52);

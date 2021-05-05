@@ -38,6 +38,29 @@ p {
   color: antiquewhite;
   text-shadow: 1px 1px 1px gray; }
 
+/***************************************** CARRITO *****************************************/
+/* .u-full-width {
+    width: 100%;
+    box-sizing: border-box;
+}
+.u-pull-right {
+    float: right;
+}
+*/
+.ul-carrito {
+  list-style: none; }
+
+.total-pesos {
+  text-align: right;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 600; }
+
+/*.submenu {
+    position: relative;
+}
+ */
 /***************************************** HOME *****************************************/
 .homePage__container {
   margin-bottom: 8%; }
