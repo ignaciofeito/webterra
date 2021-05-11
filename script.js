@@ -26,6 +26,7 @@ productos.push(velaEnVaso, boxTerra, caramelera, carameleraCircus, carameleraJaz
 
 //------------------------------- USUARIOS -------------------------------//
 
+
 function guardarLocal(nombre, mail) {
     localStorage.nombre = nombre;
     localStorage.mail = mail;
@@ -59,7 +60,21 @@ const carrito = document.querySelector('#carrito');
 const listaProductos = document.querySelector('#lista-productos');
 $(carrito).on('click', eliminarProducto);
 const contenedorCarrito = document.querySelector('#listado-carrito tbody');
+const carritoCheckout = document.querySelector('#carrito-checkout tbody');
 let articulosCarrito = [];
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    insertarCarritoHTML();
+})
+
+$("#vaciar-carrito").click(function vaciarCarrito() {
+    borrarHTML();
+    articulosCarrito = [];
+    guardarStorage();
+})
 
 $(listaProductos).on('click', agregarProducto);
 
@@ -156,19 +171,7 @@ function insertarCarritoHTML() {
     guardarStorage();
 }
 
-/*$("body").on('click', sumarTotal)
 
- function sumarTotal() {
-    articulosCarrito.forEach(producto => {
-        // Destrucuring sobre le objeto producto 
-        const arrayPrecios = [];
-        arrayPrecios.push(producto.precio)
-        let sumaTotal = 0;
-        for (let i of arrayPrecios) sumaTotal += i;
-        $('#totalCarrito').html("$ " + sumaTotal);
-    })
-}
-*/
 function guardarStorage() {
     localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
 }
@@ -182,60 +185,71 @@ function borrarHTML() {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
 }
+/*$("body").on('click', sumarTotal)
 
-/*
-$('#btn_agregar1').on('click', function () {
-    carrito.push(velaEnVaso.precio);
-    let sumaTotal = 0;
-    for (let i of carrito) sumaTotal += i;
-    $('#totalCarrito').html("$ "+sumaTotal);
-    $('#listadoCarrito').append("<div class='row'><div class='col-3'><img src='img/vela-vaso.jpg' width='60%'></div><div class='col-5'><label> "+velaEnVaso.nombre+"</label></div><div class='col-3'><label>"+velaEnVaso.precio+"</label></div></div>");
+ function sumarTotal() {
+    articulosCarrito.forEach(producto => {
+        // Destrucuring sobre le objeto producto 
+        const arrayPrecios = [];
+        arrayPrecios.push(producto.precio)
+        let sumaTotal = 0;
+        for (let i of arrayPrecios) sumaTotal += i;
+        $('#totalCarrito').html("$ " + sumaTotal);
+    })
+}
+*/
+//------------------------------- CHECKOUT -------------------------------//
+
+$('body').on('submit', '.finalizarCompraForm', function (e) {
+
+    let nombre = e.target[0].value;
+    let email = e.target[1].value;
+    let tel = e.target[2].value;
+    let cuotas = e.target[3].value.replaceAll('_', ' Cuotas de: $');
+    let creditCardNumber = e.target[4].value;
+    let creditCardName = e.target[5].value;
+    let creditCardCVC = e.target[6].value;
+    let creditCardDesde = e.target[7].value;
+    let credictCardHasta = e.target[8].value;
+    let url = "https://jsonplaceholder.typicode.com/posts";
+
+    // SIMULACIÓN DE AJAX POST
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: {
+            nombre: nombre,
+            email: email,
+            tel: tel,
+            cuotas: cuotas,
+            creditCardNumber: creditCardNumber,
+            creditCardName: creditCardName,
+            creditCardCVC: creditCardCVC,
+            creditCardDesde: creditCardDesde,
+            credictCardHasta: credictCardHasta,
+        },
+        beforeSend: function () {
+            $('#tajeta-checkout').hide()
+        },
+        success: function (data) {
+            compraRealizadaConExito(data)
+        },
+    });
 });
 
-$('#btn_agregar2').on('click', function () {
-    carrito.push(boxTerra.precio);
-    let sumaTotal = 0;
-    for (let i of carrito) sumaTotal += i;
-    $('#totalCarrito').html("$ "+sumaTotal);
-    $('#listadoCarrito').append("<div class='row'><div class='col-3'><img src='img/vela-box.jpg' width='60%'></div><div class='col-5'><label> "+boxTerra.nombre+"</label></div><div class='col-3'><label>"+boxTerra.precio+"</label></div></div>");
-});
+let compraRealizadaConExito = (data) => {
+    let creditCardNumberLast4 = data.creditCardNumber.substr(16)
+    let mensajeCompra =  `
+        <div class="col-md-12">
+            <h1>¡Gracias <span class="greenColor">${data.nombre}</span> por elegirnos!</h1>
+            <p><strong>El pago fue realizado con éxito</strong></p>
+            <p>Corroborá las instrucciones de retiro en tu correo: <span class="greenColor">${data.email}</span></p>
+            <p>Pagaste $ ${data.dataPrecioTotal} en ${data.cuotas}</p>
+            <p>Con la tarjeta número: **** - **** - **** - ${creditCardNumberLast4}</p>
+        </div>
+    `;
+    $('#card-success').append(mensajeCompra)
+    $('#card-success').show()
+} 
 
-$('#btn_agregar3').on('click', function () {
-    carrito.push(caramelera.precio);
-    let sumaTotal = 0;
-    for (let i of carrito) sumaTotal += i;
-    $('#totalCarrito').html("$ "+sumaTotal);
-    $('#listadoCarrito').append("<div class='row'><div class='col-3'><img src='img/vela-caramelera.jpg' width='60%'></div><div class='col-5'><label> "+caramelera.nombre+"</label></div><div class='col-3'><label>"+caramelera.precio+"</label></div></div>");
-});
-
-$('#btn_agregar4').on('click', function () {
-    carrito.push(carameleraCircus.precio);
-    let sumaTotal = 0;
-    for (let i of carrito) sumaTotal += i;
-    $('#totalCarrito').html("$ "+sumaTotal);
-    $('#listadoCarrito').append("<div class='row'><div class='col-3'><img src='img/vela-caramelera-circus.jpg' width='60%'></div><div class='col-5'><label> "+carameleraCircus.nombre+"</label></div><div class='col-3'><label>"+carameleraCircus.precio+"</label></div></div>");
-});
-
-$('#btn_agregar5').on('click', function () {
-    carrito.push(carameleraJazmin.precio);
-    let sumaTotal = 0;
-    for (let i of carrito) sumaTotal += i;
-    $('#totalCarrito').html("$ "+sumaTotal);
-    $('#listadoCarrito').append("<div class='row'><div class='col-3'><img src='img/vela-caramelera-jazmin.jpg' width='60%'></div><div class='col-5'><label> "+carameleraJazmin.nombre+"</label></div><div class='col-3'><label>"+carameleraJazmin.precio+"</label></div></div>");
-});
-
-$('#btn_agregar6').on('click', function () {
-    carrito.push(velaBombe.precio);
-    let sumaTotal = 0;
-    for (let i of carrito) sumaTotal += i;
-    $('#totalCarrito').html("$ "+sumaTotal);
-    $('#listadoCarrito').append("<div class='row'><div class='col-3'><img src='img/vela-bombe.jpg' width='60%'></div><div class='col-5'><label> "+velaBombe.nombre+"</label></div><div class='col-3'><label>"+velaBombe.precio+"</label></div></div>");
-});
-
-$('#btn_agregar7').on('click', function () {
-    carrito.push(sales.precio);
-    let sumaTotal = 0;
-    for (let i of carrito) sumaTotal += i;
-    $('#totalCarrito').html("$ "+sumaTotal);
-    $('#listadoCarrito').append("<div class='row'><div class='col-3'><img src='img/sales-de-banio.jpg' width='60%'></div><div class='col-5'><label> "+sales.nombre+"</label></div><div class='col-3'><label>"+sales.precio+"</label></div></div>");
-}); */
+//    

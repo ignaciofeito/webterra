@@ -22,7 +22,6 @@
 <body>
 
     <!--################################## ENCABEZADO ##################################-->
-
     <img src="img/logohome.png" alt="Terra" class="logoTerra">
 
     <nav>
@@ -41,29 +40,134 @@
                     <a class="nav-link active" href="contacto.html">Contacto</a>
                 </li>
             </ul>
-            <div>
-                <a id="btn-carrito" style="margin-right: 10px;" class="nav-item"><i class="fa fa-shopping-cart fa-2x"></i></a>
-            </div>
+            <!-- <div>
+                <div class="two columns u-pull-right"> -->
+            <ul class="ul-carrito">
+                <li class="submenu">
+                    <i class="fa fa-shopping-cart fa-2x"></i>
+
+                </li>
+            </ul>
+            <!-- </div>
+            </div> -->
         </div>
     </nav>
 
     <!-------------------------------------- CARRITO ------------------------------------>
 
+
+
     <div class="container">
-        <div>
-            <h1 class="text-left">Carrito</h1>
-            <p>Aquí podés encontrar los productos que seleccionaste:</p>    
-        </div>
-        <div class="row card" id="listadoCarrito">
+        <div class="card" id="card-success">
 
         </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-9"></div>
-            <div class="col-lg-3">
-                <p><strong>Total:</strong></p><p id="totalCarrito"></p>
+
+        <div class="card">
+            <div class="card-content" id="tajeta-checkout">
+                <div class="card-header">
+                    <h1 class="text-left">Finalizar compra</h1>
+                    <p>Indica los datos de la tarjeta:</p>
+                </div>
+
+                <div class="card-body">
+                    <div class="d-flex justify-content-between finalizarCompra row">
+                        <div class="col-md-5" id="">
+                            <div class="container">
+                                <div class="row card carrito-checkout">
+                                    <table id="listado-carrito" class="u-full-width">
+                                        <thead>
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Cantidad</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <!-- <div class="row">
+                                <div class="col-lg-9"></div>
+                                <div class="col-lg-3">
+                                    <div class="total-pesos">Total:</div>
+                                    <div class="total-pesos" id="totalCarrito"></div>
+                                </div>
+                            </div> -->
+                            </div>
+                        </div>
+                        <div class="datosPersonales_finalizarCompra col-md-6">
+
+                            <form onsubmit="return false" class="finalizarCompraForm">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="nombre">Nombre</label>
+                                        <input class="form-control" type="text" id="nombre"
+                                            placeholder="Nombre y apellido">
+                                    </div>
+                                    <div class="col">
+                                        <label for="email">Email</label>
+                                        <input class="form-control" type="email" id="email" placeholder="mail@mail.com">
+                                    </div>
+                                    <div class="col">
+                                        <label class="w-100" for="tel">Telefono</label>
+                                        <input class="form-control" type="text" placeholder="(011) 1234 5678" id="tel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group cuotas">
+                                    <label for="cuotas">Cantidad de Cuotas</label>
+                                    <select class="form-control" name="" id="cuotas">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                                <span>Datos de la tarjeta de Credito</span>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="creditCardNumber">Número de tarjeta</label>
+                                        <input class="form-control numeroDeTarjeta" type="text" name=""
+                                            id="creditCardNumber" placeholder="1213-91011-5678-1234">
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="creditCardDesde">Desde</label>
+                                        <input class="form-control" type="text" name="" id="creditCardDesde"
+                                            placeholder="00/00">
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="credictCardHasta">Hasta</label>
+                                        <input class="form-control" type="text" name="" id="credictCardHasta"
+                                            placeholder="00/00">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-10">
+                                        <label for="creditCardName">Nombre</label>
+                                        <input class="form-control" type="text" name="" id="creditCardName"
+                                            placeholder="Ingrese nombre del titular de la tarjeta">
+                                    </div>
+                                    <div class="col">
+                                        <label for="creditCardCVC">cvc</label>
+                                        <input class="form-control" type="text" name="" id="creditCardCVC"
+                                            placeholder="000">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <input class="btn btn-success" type="submit" value="Confirmar compra">
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <br>
     </div>
 
 
@@ -99,16 +203,16 @@
         </footer>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+
 
 
 </body>

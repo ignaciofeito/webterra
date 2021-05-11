@@ -46,23 +46,31 @@
             <ul class="ul-carrito">
                 <li class="submenu">
                     <i class="fa fa-shopping-cart fa-2x"></i>
-                    <!-- <div id="btn-carrito">
-
-                                <table id="lista-carrito" class="u-full-width">
-                                    <thead>
-                                        <tr>
-                                            <th>Imagen</th>
-                                            <th>Nombre</th>
-                                            <th>Precio</th>
-                                            <th>Cantidad</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-
-                                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
-                            </div> -->
+                    <div class="container">
+                        <div class="row card" id="carrito">
+                            <table id="listado-carrito" class="u-full-width">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <button id="vaciar-carrito" class="btn btn-danger col-5">Vaciar Carrito</button>
+                            <a href="checkout.html" id="checkout-btn" class="btn btn-success col-5">Ir a pagar</a>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-lg-9"></div>
+                            <div class="col-lg-3">
+                                <div class="total-pesos">Total:</div>
+                                <div class="total-pesos" id="totalCarrito"></div>
+                            </div>
+                        </div> -->
+                    </div>
                 </li>
             </ul>
             <!-- </div>
@@ -93,8 +101,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <button id="btn_agregar1" data-id="1" class="btn btn-primary sumarProducto agregar-carrito" type="submit"><i
-                                    class="fa fa-shopping-cart white"></i>
+                            <button id="btn_agregar1" data-id="1" class="btn btn-primary sumarProducto agregar-carrito"
+                                type="submit"><i class="fa fa-shopping-cart white"></i>
                                 Agregar</button>
                         </div>
                     </div>
@@ -114,8 +122,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <button id="btn_agregar2" data-id="2" class="btn btn-primary sumarProducto agregar-carrito" type="submit"><i
-                                    class="fa fa-shopping-cart white"></i>
+                            <button id="btn_agregar2" data-id="2" class="btn btn-primary sumarProducto agregar-carrito"
+                                type="submit"><i class="fa fa-shopping-cart white"></i>
                                 Agregar</button>
                         </div>
                     </div>
@@ -135,8 +143,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <button id="btn_agregar3" data-id="3" class="btn btn-primary sumarProducto agregar-carrito" type="submit"><i
-                                    class="fa fa-shopping-cart white"></i>
+                            <button id="btn_agregar3" data-id="3" class="btn btn-primary sumarProducto agregar-carrito"
+                                type="submit"><i class="fa fa-shopping-cart white"></i>
                                 Agregar</button>
                         </div>
                     </div>
@@ -156,8 +164,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <button id="btn_agregar4" data-id="4" class="btn btn-primary sumarProducto agregar-carrito" type="submit"><i
-                                    class="fa fa-shopping-cart white"></i>
+                            <button id="btn_agregar4" data-id="4" class="btn btn-primary sumarProducto agregar-carrito"
+                                type="submit"><i class="fa fa-shopping-cart white"></i>
                                 Agregar</button>
                         </div>
                     </div>
@@ -179,8 +187,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <button id="btn_agregar5" data-id="5" class="btn btn-primary sumarProducto agregar-carrito" type="submit"><i
-                                    class="fa fa-shopping-cart white"></i>
+                            <button id="btn_agregar5" data-id="5" class="btn btn-primary sumarProducto agregar-carrito"
+                                type="submit"><i class="fa fa-shopping-cart white"></i>
                                 Agregar</button>
                         </div>
                     </div>
@@ -200,8 +208,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <button id="btn_agregar6" data-id="6" class="btn btn-primary sumarProducto agregar-carrito" type="submit"><i
-                                    class="fa fa-shopping-cart white"></i>
+                            <button id="btn_agregar6" data-id="6" class="btn btn-primary sumarProducto agregar-carrito"
+                                type="submit"><i class="fa fa-shopping-cart white"></i>
                                 Agregar</button>
                         </div>
                     </div>
@@ -221,8 +229,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <button id="btn_agregar7" data-id="7" class="btn btn-primary sumarProducto agregar-carrito" type="submit"><i
-                                    class="fa fa-shopping-cart white"></i>
+                            <button id="btn_agregar7" data-id="7" class="btn btn-primary sumarProducto agregar-carrito"
+                                type="submit"><i class="fa fa-shopping-cart white"></i>
                                 Agregar</button>
                         </div>
                     </div>
@@ -230,34 +238,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div>
-                <h1 class="text-left">Carrito</h1>
-                <p>Aquí podés encontrar los productos que seleccionaste:</p>
-            </div>
-            <div class="row card" id="carrito">
-                <table id="listado-carrito">
-                    <thead>
-                        <tr>
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
 
-            </div>
-            <div class="row">
-                <div class="col-lg-9"></div>
-                <div class="col-lg-3">
-                    <div class="total-pesos">Total:</div>
-                    <div class="total-pesos" id="totalCarrito"></div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
