@@ -75,6 +75,11 @@ $("#vaciar-carrito").click(function vaciarCarrito() {
     articulosCarrito = [];
     guardarStorage();
 })
+$("#btn-buy").click(function vaciarCarrito() {
+    borrarHTML();
+    articulosCarrito = [];
+    guardarStorage();
+})
 
 $(listaProductos).on('click', agregarProducto);
 
@@ -84,8 +89,6 @@ function agregarProducto(e) {
     if (e.target.classList.contains("agregar-carrito")) {
         /* Selecciono el card del producto sobre el que se hizo click */
         const productoSeleccionado = e.target.parentElement.parentElement.parentElement;
-
-        // console.log(productoSeleccionado.querySelector('.precio span').textContent);
         obtenerDatosProducto(productoSeleccionado);
     };
 }
@@ -118,8 +121,6 @@ function obtenerDatosProducto(producto) {
         /* Agregar al carrito un producto ya existente */
         const productos = articulosCarrito.map(producto => {
             if (producto.id === productoAgregado.id) {
-                // console.log(productoAgregado.precio.slice(1))
-                // console.log(producto.cantidad)
                 producto.cantidad++;
                 producto.precio = `$${Number(productoAgregado.precio.slice(1)) * producto.cantidad}`;
                 return producto;
@@ -131,20 +132,18 @@ function obtenerDatosProducto(producto) {
     } else {
         /* Agregar al carrito un producto que no estaba antes*/
         articulosCarrito = [...articulosCarrito, productoAgregado];
-        // articulosCarrito.push(productoAgregado);
-    }
 
+    }
 
     insertarCarritoHTML();
 
-    // console.log(articulosCarrito);
 }
 
 function insertarCarritoHTML() {
     borrarHTML();
 
     articulosCarrito.forEach(p => {
-        /* Destrucuring sobre le objeto p */
+        /* Destrucuring sobre el objeto p */
         const { nombre, imagen, precio, cantidad, id } = p;
 
         const row = document.createElement('tr');
@@ -177,10 +176,7 @@ function guardarStorage() {
 }
 
 function borrarHTML() {
-    /* Forma "lenta" */
-    // contenedorCarrito.innerHTML = '';
 
-    /* Forma rapida */
     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
@@ -213,6 +209,8 @@ $('body').on('submit', '.finalizarCompraForm', function (e) {
     let credictCardHasta = e.target[8].value;
     let url = "https://jsonplaceholder.typicode.com/posts";
 
+
+
     // SIMULACIÓN DE AJAX POST
     $.ajax({
         url: url,
@@ -230,6 +228,7 @@ $('body').on('submit', '.finalizarCompraForm', function (e) {
         },
         beforeSend: function () {
             $('#tajeta-checkout').hide()
+
         },
         success: function (data) {
             compraRealizadaConExito(data)
@@ -239,17 +238,15 @@ $('body').on('submit', '.finalizarCompraForm', function (e) {
 
 let compraRealizadaConExito = (data) => {
     let creditCardNumberLast4 = data.creditCardNumber.substr(16)
-    let mensajeCompra =  `
+    let mensajeCompra = `
         <div class="col-md-12">
-            <h1>¡Gracias <span class="greenColor">${data.nombre}</span> por elegirnos!</h1>
+            <h1>¡Gracias por elegirnos ${data.nombre}!</h1>
             <p><strong>El pago fue realizado con éxito</strong></p>
-            <p>Corroborá las instrucciones de retiro en tu correo: <span class="greenColor">${data.email}</span></p>
+            <p>Corroborá las instrucciones de retiro en tu correo: <strong>${data.email}</strong></p>
             <p>Pagaste $ ${data.dataPrecioTotal} en ${data.cuotas}</p>
             <p>Con la tarjeta número: **** - **** - **** - ${creditCardNumberLast4}</p>
         </div>
     `;
     $('#card-success').append(mensajeCompra)
     $('#card-success').show()
-} 
-
-//    
+}
