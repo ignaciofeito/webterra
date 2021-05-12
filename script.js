@@ -149,7 +149,7 @@ function insertarCarritoHTML() {
         const row = document.createElement('tr');
         row.innerHTML = `
 			<td>
-				<img src="${imagen}" width=100>
+				<img class="img-carrito" src="${imagen}" width=100>
 			</td>
 			<td>
 				${nombre}
@@ -181,19 +181,26 @@ function borrarHTML() {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
 }
-/*$("body").on('click', sumarTotal)
 
- function sumarTotal() {
+const arrayPrecios = [];
+
+document.addEventListener('DOMContentLoaded', () => {
     articulosCarrito.forEach(producto => {
-        // Destrucuring sobre le objeto producto 
-        const arrayPrecios = [];
-        arrayPrecios.push(producto.precio)
-        let sumaTotal = 0;
+        var { nombre, imagen, precio, cantidad, id } = producto;
+        precio = precio.replace('$', '')
+        arrayPrecios.push(parseInt(precio));
+        var sumaTotal = 0;
         for (let i of arrayPrecios) sumaTotal += i;
-        $('#totalCarrito').html("$ " + sumaTotal);
-    })
-}
-*/
+        $('#totalCarrito').html(sumaTotal);
+        calcularCuotas(sumaTotal);
+    });
+    function calcularCuotas(total) {
+        $("#tres-cuotas").html("3 cuotas sin interés de $ " + parseInt(total / 3));
+        $("#seis-cuotas").html("6 cuotas sin interés de $ " + parseInt(total / 6));
+        $("#doce-cuotas").html("12 cuotas sin interés de $ " + parseInt(total / 12));
+    }
+})
+
 //------------------------------- CHECKOUT -------------------------------//
 
 $('body').on('submit', '.finalizarCompraForm', function (e) {
@@ -241,10 +248,8 @@ let compraRealizadaConExito = (data) => {
     let mensajeCompra = `
         <div class="col-md-12">
             <h1>¡Gracias por elegirnos ${data.nombre}!</h1>
-            <p><strong>El pago fue realizado con éxito</strong></p>
+            <p><strong>El pago fue realizado con éxito con la tarjeta número: **** - **** - **** - ${creditCardNumberLast4}</strong></p>
             <p>Corroborá las instrucciones de retiro en tu correo: <strong>${data.email}</strong></p>
-            <p>Pagaste $ ${data.dataPrecioTotal} en ${data.cuotas}</p>
-            <p>Con la tarjeta número: **** - **** - **** - ${creditCardNumberLast4}</p>
         </div>
     `;
     $('#card-success').append(mensajeCompra)

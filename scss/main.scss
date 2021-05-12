@@ -93,13 +93,17 @@ p {
     font-family: "Poppins", sans-serif;
     background-color: white;
     padding: 50%;
-    min-height: 500px;
+    min-height: 300px;
     min-width: 500px;
-    margin: 20%;
+    margin: 5%;
     tr th {
         color: $brown;
         margin-bottom: 10%;
     }
+}
+
+.img-carrito {
+    border: 0.5px solid navajowhite;
 }
 
 .ul-carrito {
@@ -118,10 +122,9 @@ p {
     font-weight: 600;
 }
 
-/*.submenu {
+.submenu {
     position: relative;
 }
- */
 
 /***************************************** CHECKOUT *****************************************/
 
@@ -142,9 +145,11 @@ p {
     }
 }
 
-.finalizarCompraForm .btn {
+#btn-buy {
     text-align: right;
     margin: 5% 0% 5% 0%;
+    -webkit-box-shadow: 0px 5px 33px -6px rgba(27, 234, 0, 0.96);
+    box-shadow: 0px 5px 33px -6px rgba(27, 234, 0, 0.96);
 }
 
 .datosPersonales_finalizarCompra {
