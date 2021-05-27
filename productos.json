@@ -1,0 +1,46 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Vela en vaso",
+            "precio": 450,
+            "stock": 3
+        },
+        {
+            "id": 2,
+            "nombre": "Box terra",
+            "precio": 600,
+            "stock": 2
+        },
+        {
+            "id": 3,
+            "nombre": "Caramelera",
+            "precio": 500,
+            "stock": 3
+        },
+        {
+            "id": 4,
+            "nombre": "Caramelera mini circus",
+            "precio": 500,
+            "stock": 2
+        },
+        {
+            "id": 5,
+            "nombre": "Caramelera jazmín",
+            "precio": 450,
+            "stock": 1
+        },
+        {
+            "id": 6,
+            "nombre": "Vela bombé",
+            "precio": 400,
+            "stock": 3
+        },
+        {
+            "id": 7,
+            "nombre": "Sales de baño",
+            "precio": 450,
+            "stock": 3
+        }
+    ]
+}

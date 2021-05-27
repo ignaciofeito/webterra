@@ -7,22 +7,21 @@ class producto {
         this.precio = parseFloat(precio);
         this.stock = parseInt(stock);
     }
-    vender() {
-        this.stock = this.stock - 1;
-    }
 }
 
-// A continuación creo los productos
-const velaEnVaso = new producto(1, "Vela en vaso", 450, 3);
-const boxTerra = new producto(2, "Box terra", 600, 2);
-const caramelera = new producto(3, "Caramelera", 500, 3);
-const carameleraCircus = new producto(4, "Caramelera mini circus", 500, 2);
-const carameleraJazmin = new producto(5, "Caramelera jazmín", 450, 1);
-const velaBombe = new producto(6, "Vela bombé", 400, 3);
-const sales = new producto(7, "Sales de baño", 450, 3);
-
 const productos = []; // Este es el array que contendrá todos los productos
-productos.push(velaEnVaso, boxTerra, caramelera, carameleraCircus, carameleraJazmin, velaBombe, sales); // Agrega todos los productos al array "productos"
+
+$(document).ready(() => {
+    $.getJSON("productos.json", function (datos) {
+
+        $.each(datos.productos, function () {
+            new producto(`${this.id}`, `${this.nombre}`, `${this.precio}`, `${this.stock}`)
+            productos.push(this)
+        })
+        console.log(productos)
+    })
+})
+
 
 //------------------------------- USUARIOS -------------------------------//
 
@@ -216,31 +215,34 @@ $('body').on('submit', '.finalizarCompraForm', function (e) {
     let credictCardHasta = e.target[8].value;
     let url = "https://jsonplaceholder.typicode.com/posts";
 
+    if (nombre != '' && email != '' && tel != '' && creditCardNumber != '' && creditCardName != '' && creditCardCVC != '' && creditCardDesde != '' && credictCardHasta != '') {
 
+        // SIMULACIÓN DE AJAX POST
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                nombre: nombre,
+                email: email,
+                tel: tel,
+                cuotas: cuotas,
+                creditCardNumber: creditCardNumber,
+                creditCardName: creditCardName,
+                creditCardCVC: creditCardCVC,
+                creditCardDesde: creditCardDesde,
+                credictCardHasta: credictCardHasta,
+            },
+            beforeSend: function () {
+                $('#tajeta-checkout').hide()
 
-    // SIMULACIÓN DE AJAX POST
-    $.ajax({
-        url: url,
-        type: 'POST',
-        data: {
-            nombre: nombre,
-            email: email,
-            tel: tel,
-            cuotas: cuotas,
-            creditCardNumber: creditCardNumber,
-            creditCardName: creditCardName,
-            creditCardCVC: creditCardCVC,
-            creditCardDesde: creditCardDesde,
-            credictCardHasta: credictCardHasta,
-        },
-        beforeSend: function () {
-            $('#tajeta-checkout').hide()
-
-        },
-        success: function (data) {
-            compraRealizadaConExito(data)
-        },
-    });
+            },
+            success: function (data) {
+                compraRealizadaConExito(data)
+            },
+        });
+    } else {
+        alert("No ingresaste los datos solicitados! Intentalo de nuevo completando todos los campos")
+    }
 });
 
 let compraRealizadaConExito = (data) => {
