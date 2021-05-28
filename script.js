@@ -25,7 +25,6 @@ $(document).ready(() => {
 
 //------------------------------- USUARIOS -------------------------------//
 
-
 function guardarLocal(nombre, mail) {
     localStorage.nombre = nombre;
     localStorage.mail = mail;
