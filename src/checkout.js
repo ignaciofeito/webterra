@@ -1,3 +1,68 @@
+const carritoCheckout = document.querySelector('#carrito-checkout tbody');
+var productosCarritoCheckout = JSON.parse(localStorage.getItem('carrito'))
+const contenedorCarrito = document.querySelector('#listado-carrito tbody');
+
+function vaciarCarrito() {
+    borrarHTML();
+    articulosCarrito = [];
+    guardarStorage();
+}
+
+function guardarStorage() {
+    localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
+}
+
+function borrarHTML() {
+
+    while (contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    productosCarritoCheckout.forEach(p => {
+        /* Destrucuring sobre el objeto p */
+        const { nombre, imagen, precio, cantidad, id } = p;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>
+            <img class="img-carrito" src="${imagen}" width=100>
+        </td>
+        <td>
+            ${nombre}
+        </td>
+        <td>
+            ${precio}
+        </td>
+        <td>
+            ${cantidad}
+        </td>
+        
+    `
+        carritoCheckout.appendChild(row);
+    });
+})
+
+const arrayPrecios = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+    productosCarritoCheckout.forEach(p => {
+        var { nombre, imagen, precio, cantidad, id } = p;
+        precio = precio.replace('$', '')
+        arrayPrecios.push(parseInt(precio));
+        var sumaTotal = 0;
+        for (let i of arrayPrecios) sumaTotal += i;
+        $('#totalCarrito').html(sumaTotal);
+        calcularCuotas(sumaTotal);
+    });
+    function calcularCuotas(total) {
+        $("#tres-cuotas").html("3 cuotas sin interés de $ " + parseInt(total / 3));
+        $("#seis-cuotas").html("6 cuotas sin interés de $ " + parseInt(total / 6));
+        $("#doce-cuotas").html("12 cuotas sin interés de $ " + parseInt(total / 12));
+    }
+})
+
 $('body').on('submit', '.finalizarCompraForm', function (e) {
 
     let nombre = e.target[0].value;
@@ -31,11 +96,13 @@ $('body').on('submit', '.finalizarCompraForm', function (e) {
                 credictCardHasta: credictCardHasta,
             },
             beforeSend: function () {
+                vaciarCarrito()
                 $('#tajeta-checkout').hide()
 
             },
             success: function (data) {
-                compraRealizadaConExito(data)
+                compraRealizadaConExito(data);
+
             },
         });
     }

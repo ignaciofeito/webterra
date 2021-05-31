@@ -1,9 +1,8 @@
 
-const carrito = document.querySelector('#carrito');
+const carrito = document.querySelector('#carrito')
 const listaProductos = document.querySelector('#lista-productos');
 $(carrito).on('click', eliminarProducto);
 const contenedorCarrito = document.querySelector('#listado-carrito tbody');
-const carritoCheckout = document.querySelector('#carrito-checkout tbody');
 let articulosCarrito = [];
 
 
@@ -13,16 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     insertarCarritoHTML();
 })
 
-$("#vaciar-carrito").click(function vaciarCarrito() {
+function vaciarCarrito() {
     borrarHTML();
     articulosCarrito = [];
     guardarStorage();
-})
-$("#btn-buy").click(function vaciarCarrito() {
-    borrarHTML();
-    articulosCarrito = [];
-    guardarStorage();
-})
+}
+
+$("#vaciar-carrito").on('click', vaciarCarrito)
 
 $(listaProductos).on('click', agregarProducto);
 
@@ -113,7 +109,6 @@ function insertarCarritoHTML() {
     guardarStorage();
 }
 
-
 function guardarStorage() {
     localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
 }
@@ -124,22 +119,3 @@ function borrarHTML() {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
 }
-
-const arrayPrecios = [];
-
-document.addEventListener('DOMContentLoaded', () => {
-    articulosCarrito.forEach(producto => {
-        var { nombre, imagen, precio, cantidad, id } = producto;
-        precio = precio.replace('$', '')
-        arrayPrecios.push(parseInt(precio));
-        var sumaTotal = 0;
-        for (let i of arrayPrecios) sumaTotal += i;
-        $('#totalCarrito').html(sumaTotal);
-        calcularCuotas(sumaTotal);
-    });
-    function calcularCuotas(total) {
-        $("#tres-cuotas").html("3 cuotas sin interés de $ " + parseInt(total / 3));
-        $("#seis-cuotas").html("6 cuotas sin interés de $ " + parseInt(total / 6));
-        $("#doce-cuotas").html("12 cuotas sin interés de $ " + parseInt(total / 12));
-    }
-})

@@ -18,7 +18,6 @@ $(document).ready(() => {
             new producto(`${this.id}`, `${this.nombre}`, `${this.precio}`, `${this.stock}`)
             productos.push(this)
         })
-        console.log(productos)
     })
 })
 
@@ -30,6 +29,3 @@ import './usuarios.js'
 
 import './carrito.js'
 
-//------------------------------- CHECKOUT -------------------------------//
-
-import './checkout.js'
